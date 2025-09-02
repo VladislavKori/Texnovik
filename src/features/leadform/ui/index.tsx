@@ -1,4 +1,4 @@
-import { FC, startTransition } from "react";
+import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "./style.module.scss";
 import clsx from "clsx";
