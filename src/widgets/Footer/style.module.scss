@@ -1,0 +1,15 @@
+.footer {
+    background: #101010;
+
+    &-inner {
+        padding: 24px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    &-text {
+        font-family: var(--font-family-1);
+        font-size: 14px;
+        color: white;
+    }
+}

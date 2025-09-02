@@ -1,0 +1,85 @@
+.toast {
+    background: #303030;
+    min-width: 240px;
+    width: 350px;
+    padding: 14px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+
+    &-text {
+        font-family: var(--font-family-1);
+        color: white;
+        font-size: 16px;
+    }
+
+    &-head {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        & span {
+            font-size: 14px;
+            font-family:  var(--font-family-1);
+        }
+    }
+
+    &-variant {
+        &-error {
+            & span {
+                color: red;
+            }
+
+            & svg {
+                stroke: red;
+            }
+        }
+
+        &-warning {
+            & span {
+                color: yellow;
+            }
+
+            & svg {
+                stroke: yellow;
+            }
+        }
+
+        &-success {
+            & span {
+                color: green;
+            }
+
+            & svg {
+                stroke: green;
+            }
+        }
+
+        &-information {
+            & span {
+                color: #2765e6;
+            }
+
+            & svg {
+                stroke: #2765e6;
+            }
+        }
+    }
+
+    &-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.toasts-section {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 5;
+}

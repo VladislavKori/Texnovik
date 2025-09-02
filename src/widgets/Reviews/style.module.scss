@@ -1,0 +1,100 @@
+.reviews {
+    padding: 150px 0;
+
+    &-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &-texts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &-title {
+        font-family: var(--font-family-2);
+        font-weight: 400;
+        font-size: 100px;
+        line-height: 125%;
+        text-align: center;
+        color: #fff;
+    }
+
+    &-subtitle {
+        font-family: var(--font-family-1);
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 104%;
+        letter-spacing: 0.05em;
+        text-align: center;
+        color: #cbcbcb;
+        max-width: 1000px
+    }
+
+    &-card {
+        background: #303030;
+
+        // temporary solution
+        color: white;
+        padding: 16px;
+        border-radius: 14px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--font-family-2);
+        font-size: 48px;
+    }
+
+    &-swiper {
+        position: relative;
+        width: 100%;
+    }
+
+    &-prev,
+    &-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 18px;
+        z-index: 4;
+        width: max-content;
+        width: 60px;
+        height: 60px;
+        background: #D9D9D9;
+        border-radius: 50%;
+        border: none;
+        transition: all .2s ease-in-out;
+        font-family: var(--font-family-1);
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &-next {
+        right: 18px;
+        left: inherit;
+    }
+}
+
+@media (max-width: 576px) {
+    .reviews {
+        padding: 100px 16px;
+        
+        &-title {
+            font-size: 50px;
+        }
+
+        &-subtitle {
+            font-size: 20px;
+        }
+
+    }
+}

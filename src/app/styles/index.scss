@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import "swiper/css";
+@import 'swiper/scss/navigation';
+
+body {
+    background: rgba(0, 0, 0);
+}
+
+@font-face {
+    font-family: "Bebas Neue Cyrillic"; /* любое имя для использования в CSS */
+    src: url("@shared/assets/fonts/Bebas Neue Cyrillic/bebasneuecyrillic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --font-family-1: "Nunito", sans-serif;
+    --font-family-2: "Bebas Neue Cyrillic", sans-serif;
+}
+
+.container {
+    max-width: 1520px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 1550px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+}

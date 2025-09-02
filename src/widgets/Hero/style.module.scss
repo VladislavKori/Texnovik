@@ -1,0 +1,120 @@
+.hero {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &-background {
+        background-image: url("./assets/bg.png");
+        background-size: cover;
+        background-position: top right;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        &-gradient {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(270deg, rgba(5, 4, 2, 0) 0%, #050402 100%);
+            height: 100%;
+            width: 50%;
+            z-index: 2;
+        }
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+        position: relative;
+        z-index: 2;
+    }
+
+    &-title {
+        font-family: var(--font-family-2);
+        font-weight: 700;
+        font-size: 100px;
+        line-height: 93%;
+        letter-spacing: 0.03em;
+        background: linear-gradient(143deg, #fff 0%, #a9a9a9 49.04%, #fff 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &-subtitle {
+        font-family: var(--font-family-1);
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 104%;
+        letter-spacing: 0.05em;
+        color: #cbcbcb;
+        text-wrap: balance;
+    }
+
+    &-button {
+        border-radius: 10px;
+        background: #2a68ea;
+        padding: 18px 44px;
+        font-family: var(--font-family-1);
+        font-weight: 700;
+        font-size: 20px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        width: max-content;
+
+        &:hover {
+            background: white;
+            color: #2a68ea;
+        }
+    }
+
+    &-texts {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-width: 925px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        &-title {
+            font-size: 80px;
+        }
+
+        &-subtitle {
+            font-size: 20px;
+        }
+    }
+}
+
+
+@media (max-width: 576px) {
+    .hero {
+        &-title {
+            text-wrap: balance;
+            font-size: 50px;
+        }
+
+        &-content {
+            margin-top: 60px;
+        }
+
+        &-subtitle {
+            font-size: 18px;
+        }
+
+        &-content {
+            padding: 0 16px;
+        }
+    }
+}
