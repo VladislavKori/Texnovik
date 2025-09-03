@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/small_logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- fonts -->
@@ -13,11 +13,29 @@
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet">
 
-  <title>Template</title>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=%VITE_YANDEX_METRICA_ID%', 'ym');
+
+    ym(Number("%VITE_YANDEX_METRICA_ID%"), 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", accurateTrackBounce: true, trackLinks: true });
+  </script>
+  <!-- /Yandex.Metrika counter -->
+
+  <title>Texnovik</title>
 </head>
 
 <body>
   <div id="root"></div>
+
+  <!-- Yandex.Metrika counter -->
+  <div><img src="https://mc.yandex.ru/watch/%VITE_YANDEX_METRICA_ID%" style="position:absolute; left:-9999px;" alt="" /></div>
+  <!-- /Yandex.Metrika counter -->
+
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
