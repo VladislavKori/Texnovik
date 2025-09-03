@@ -1,26 +1,27 @@
 export const haederLinks = [
     {
-        href: "/",
+        href: "home",
         text: "Главаная"
     },
     {
-        href: "#services",
+        href: "services",
         text: "Услуги"
     },
     {
-        href: "#about",
+        href: "about",
         text: "О нас"
     },
     {
-        href: "#clients",
+        href: "clients",
         text: "Клиенты"
     },
     {
-        href: "#review",
+        href: "reviews",
         text: "Отзывы"
     },
     {
-        href: "#contacts",
-        text: "Контакты"
+        href: "contacts",
+        text: "Контакты",
+        offset: -250,
     },
 ]

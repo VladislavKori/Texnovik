@@ -1,0 +1,1 @@
+export { DostavkaPage } from "./ui"

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styles from "./style.module.scss";
+import { motion } from "framer-motion";
 
 export const Contacts: FC = () => {
     return (
@@ -16,31 +17,63 @@ export const Contacts: FC = () => {
 
             <div className="container">
                 <div className={styles["contacts-inner"]}>
-                    <h2 className={styles["contacts-title"]}>Контакты</h2>
+                    <motion.h2
+                        className={styles["contacts-title"]}
+                        initial={{ y: -50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        Контакты
+                    </motion.h2>
                     <div className={styles["contacts-grid"]}>
                         {/* Телефон */}
-                        <div className={styles["contacts-block"]}>
+                        <motion.div
+                            className={styles["contacts-block"]}
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.3, duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
                             <span className={styles["contacts-block-title"]}>Телефон</span>
                             <a href="tel:+79119257015" className={styles["contacts-block-info"]}>+7 (911) 925-70-15</a>
-                        </div>
+                        </motion.div>
 
                         {/* Адресс */}
-                        <div className={styles["contacts-block"]}>
+                        <motion.div
+                            className={styles["contacts-block"]}
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.6, duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
                             <span className={styles["contacts-block-title"]}>Адресс</span>
                             <a className={styles["contacts-block-info"]}>г. Санкт-Петербург, ул. Промышленная, д. 1</a>
-                        </div>
+                        </motion.div>
 
                         {/* Почта */}
-                        <div className={styles["contacts-block"]}>
+                        <motion.div
+                            className={styles["contacts-block"]}
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.8, duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
                             <span className={styles["contacts-block-title"]}>Email</span>
                             <a className={styles["contacts-block-info"]}>9257015@gmail.com</a>
-                        </div>
+                        </motion.div>
 
                         {/* Время работы */}
-                        <div className={styles["contacts-block"]}>
+                        <motion.div
+                            className={styles["contacts-block"]}
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 1, duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
                             <span className={styles["contacts-block-title"]}>Время работы</span>
                             <a className={styles["contacts-block-info"]}>Пн–Пт, 9:00–18:00</a>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>

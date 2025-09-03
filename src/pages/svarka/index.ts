@@ -1,0 +1,1 @@
+export { SvarkaPage } from "./ui"

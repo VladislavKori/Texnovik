@@ -4,6 +4,7 @@ import styles from "./style.module.scss";
 import { haederLinks } from "./config";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 export const Header: FC = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -26,18 +27,26 @@ export const Header: FC = () => {
                     <TextLogo className={styles["header-icon"]} />
                 </Link>
                 <nav className={styles["header-menu"]}>
-                    {haederLinks.map(link => (
-                        <a
+                    {haederLinks.map((link, index) => (
+                        <ScrollLink
                             className={styles["header-link"]}
-                            href={link.href}
+                            activeClass={styles["header-link-active"]}
+                            to={link.href}
+                            key={`${link.text}-${index}`}
+                            offset={link.offset || 0}
+                            duration={500}
+                            smooth
+                            spy
                         >
                             {link.text}
-                        </a>
+                        </ScrollLink>
                     ))}
                 </nav>
-                <button className={styles["header-button"]}>
-                    Оставить заявку
-                </button>
+                <ScrollLink to="leave_a_request" duration={800} smooth>
+                    <button className={styles["header-button"]}>
+                        Оставить заявку
+                    </button>
+                </ScrollLink>
             </div>
         </header>
     )

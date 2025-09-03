@@ -1,0 +1,1 @@
+export { MontazhPage } from "./ui"

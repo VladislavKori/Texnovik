@@ -30,6 +30,11 @@
         font-size: 20px;
         color: #595959;
         text-decoration: none;
+        cursor: pointer;
+
+        &-active {
+            color: white;
+        }
     }
 
     &-button {
