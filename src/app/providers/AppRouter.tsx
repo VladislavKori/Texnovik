@@ -14,7 +14,6 @@ export function AppRouter() {
                 <Route path="rezka" element={<RezkaPage />} />
                 <Route path="montazh" element={<MontazhPage />} />
                 <Route path="dostavka" element={<DostavkaPage />} />
-                {/* <Route path="*" element={<NotFoundPage />} /> */}
             </Routes>
         </BrowserRouter>
     )
