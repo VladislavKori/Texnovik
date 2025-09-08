@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage, NotFoundPage } from "@pages";
+import { HomePage } from "@pages";
 import { MontazhPage } from "@pages/montazh";
 import { RezkaPage } from "@pages/rezka";
 import { SvarkaPage } from "@pages/svarka";
@@ -14,7 +14,7 @@ export function AppRouter() {
                 <Route path="rezka" element={<RezkaPage />} />
                 <Route path="montazh" element={<MontazhPage />} />
                 <Route path="dostavka" element={<DostavkaPage />} />
-                <Route path="*" element={<NotFoundPage />} />
+                {/* <Route path="*" element={<NotFoundPage />} /> */}
             </Routes>
         </BrowserRouter>
     )
