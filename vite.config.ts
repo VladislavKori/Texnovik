@@ -6,6 +6,9 @@ import path from "path";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
+  server: {
+    host: "127.0.0.1"
+  },
   resolve: {
     alias: {
       "@app": path.resolve("src/app"),
