@@ -1,0 +1,100 @@
+@mixin default {
+    background: #2a68ea;
+    color: white;
+    border-radius: 10px;
+
+    &.disabled {
+        opacity: .8;
+        cursor: not-allowed;
+
+        &:hover {
+            background: #2765e6;
+            color: #fff;
+
+            & svg {
+                fill: white;
+            }
+        }
+    }
+
+    & svg {
+        fill: white;
+        transition: all .3s ease-in-out;
+    }
+
+    &:hover {
+        background: white;
+        color: #2a68ea;
+
+        & svg {
+            fill: #2765e6;
+        }
+    }
+
+    &:active {
+        opacity: .8;
+    }
+}
+
+@mixin outline {
+    border-radius: 10px;
+    border: 2px solid #2a68ea;
+    background: none;
+    color: white;
+
+    & svg {
+        fill: white;
+        transition: all .3s ease-in-out;
+    }
+
+    &:hover {
+        background: #2a68ea;
+    }
+
+    &:active {
+        opacity: .8;
+    }
+}
+
+.button {
+    transition: all .3s ease-in-out;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: var(--font-family-1);
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+
+    &-variant-default {
+        @include default;
+    }
+
+    &-variant-outline {
+        @include outline;
+    }
+
+    &-size-s {
+        padding: 8px 18px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    &-size-m {
+        padding: 14px 24px;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    &-size-l {
+        padding: 18px 44px;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    &-full-width {
+        width: 100%;
+    }
+}
