@@ -5,9 +5,12 @@ import { haederLinks } from "./config";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import { Button } from "@shared/ui/Button";
+import { useMediaQuery } from "@shared/hooks/useMediaQuery";
 
 export const Header: FC = () => {
     const [scrolled, setScrolled] = useState(false);
+    const isPhone = useMediaQuery("(max-width: 576px)");
 
     useEffect(() => {
         const onScroll = () => {
@@ -43,9 +46,9 @@ export const Header: FC = () => {
                     ))}
                 </nav>
                 <ScrollLink to="leave_a_request" duration={800} smooth>
-                    <button className={styles["header-button"]}>
+                    <Button size={isPhone ? "m" : "l"} variant="outline">
                         Оставить заявку
-                    </button>
+                    </Button>
                 </ScrollLink>
             </div>
         </header>

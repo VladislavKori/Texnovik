@@ -2,6 +2,8 @@ import { FC } from "react";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import { Button } from "@shared/ui/Button";
+import { useMediaQuery } from "@shared/hooks/useMediaQuery";
 
 interface IHeroProps {
     title: string;
@@ -10,6 +12,8 @@ interface IHeroProps {
 }
 
 export const Hero: FC<IHeroProps> = (props) => {
+    const isPhone = useMediaQuery("(max-width: 576px)");
+
     return (
         <div className={styles["hero"]}>
             <motion.div
@@ -52,9 +56,7 @@ export const Hero: FC<IHeroProps> = (props) => {
                         transition={{ delay: 0.8, duration: 0.8 }}
                     >
                         <Link to="leave_a_request" duration={800} smooth>
-                            <button className={styles["hero-button"]}>
-                                Оставить заявку
-                            </button>
+                            <Button size={isPhone ? "m" : "l"}>Оставить заявку</Button>
                         </Link>
                     </motion.div>
                 </div>

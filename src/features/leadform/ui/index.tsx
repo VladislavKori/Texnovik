@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "./style.module.scss";
 import clsx from "clsx";
 import { useToast } from "@shared/ui/Toast";
+import { Button } from "@shared/ui/Button";
 
 interface FormInputs {
     name: string;
@@ -95,15 +96,15 @@ export const LeadForm: FC = () => {
                 />
             </div>
 
-            <button
+            <Button
                 type="submit"
-                className={clsx(
-                    styles["form-button"],
-                    (errors.phone || errors.name) && styles["form-button-disabled"]
-                )}
+                fullWidth
+                size="m"
+                variant="default"
+                disabled={Boolean(errors.phone || errors.name)}
             >
                 Отправить
-            </button>
+            </Button>
 
         </form>
     )

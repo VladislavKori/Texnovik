@@ -2,6 +2,7 @@ import { FC } from "react";
 import styles from "./style.module.scss";
 import CirclInfo from "@shared/assets/circle-info.svg?react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@shared/ui/Button";
 
 interface IServiceCardProps {
     title: string;
@@ -20,9 +21,14 @@ export const ServiceCard: FC<IServiceCardProps> = (props) => {
                     <h2 className={styles["card-title"]}>{props.title}</h2>
                     <p className={styles["card-subtitle"]}>{props.description}</p>
                 </div>
-                <button className={styles["card-button"]} onClick={() => navigate(props.link)}>
-                    <CirclInfo /> Подробнее
-                </button>
+                <Button 
+                    className={styles["card-button"]} 
+                    onClick={() => navigate(props.link)}
+                    startContent={<CirclInfo />}
+                    fullWidth
+                >
+                    Подробнее
+                </Button>
             </div>
             <div 
                 className={styles["card-image"]} 

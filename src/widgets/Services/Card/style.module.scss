@@ -40,39 +40,7 @@
     }
 
     &-button {
-        border-radius: 8px;
-        padding: 14px 24px;
-        background: #2765e6;
-        font-family: var(--font-family-1);
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 93%;
-        letter-spacing: 0.03em;
-        color: #fff;
-        border: none;
-        width: max-content;
-        transition: all .2s ease-in-out;
         max-width: 320px;
-        width: 100%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-
-        & svg {
-            transition: all .2s ease-in-out;
-            fill: white;
-        }
-
-        &:hover {
-            background: white;
-            color: #2765e6;
-
-            & svg {
-                fill: #2765e6;
-            }
-        }
     }
 
     &-image {
@@ -86,6 +54,10 @@
 @media (max-width: 992px) {
     .card {
         flex-direction: column;
+
+        &-title {
+            margin-left: 0;
+        }
 
         &-image {
             flex-basis: 250px;
