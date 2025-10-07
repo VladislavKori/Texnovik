@@ -6,7 +6,10 @@
     &-label {
         color: white;
         font-family: var(--font-family-1);
-        font-weight: 700;
+        text-wrap: balance;
+        max-width: 400px;
+        font-weight: 400;
+        cursor: pointer;
     }
 
     &-input {
@@ -72,12 +75,17 @@
         color: red;
         font-size: 14px;
     }
+
+    &-link {
+        font-family: var(--font-family-1);
+        color: #2a68ea;
+    }
 }
 
 @media (max-width: 576px) {
     .form {
         width: 100%;
-        
+
         &-input {
             min-width: initial;
             width: 100%;

@@ -9,6 +9,7 @@ interface FormInputs {
     name: string;
     phone: string;
     message: string;
+    consent: boolean;
 }
 
 export const LeadForm: FC = () => {
@@ -96,12 +97,33 @@ export const LeadForm: FC = () => {
                 />
             </div>
 
+            <div className={styles["form-field"]}>
+                <label className={styles["form-label"]}>
+                    <input
+                        type="checkbox"
+                        {...register(
+                            "consent",
+                            { required: "Необходимо согласие с политикой конфиденциальности" }
+                        )}
+                    /> {" "}
+                    Я согласен на обработку персональных данных и принимаю {" "}
+                    <a
+                        className={styles["form-link"]}
+                        href="/privacy"
+                        target="_blank"
+                    >
+                        Политику конфиденциальности
+                    </a>
+                </label>
+                {errors.consent && <p className={styles["form-error"]}>{errors.consent.message}</p>}
+            </div>
+
             <Button
                 type="submit"
                 fullWidth
                 size="m"
                 variant="default"
-                disabled={Boolean(errors.phone || errors.name)}
+                disabled={Boolean(errors.phone || errors.name || errors.consent)}
             >
                 Отправить
             </Button>
