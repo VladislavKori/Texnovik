@@ -1,12 +1,17 @@
 import { Footer } from "@widgets/Footer";
 import { Header } from "@widgets/Header";
 import { Hero } from "@widgets/Hero";
-import { Element } from 'react-scroll';
+import { Element, animateScroll as scroll } from 'react-scroll';
 
 import Bg from "@shared/assets/dostavka.jpg";
 import { ReadyToCollaborate } from "@widgets/ReadyToCollaborate";
+import { useEffect } from "react";
 
 export function DostavkaPage() {
+    useEffect(() => {
+        scroll.scrollToTop()
+    }, [])
+
     return (<>
         <Header />
         <Hero

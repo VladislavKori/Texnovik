@@ -1,12 +1,17 @@
+import { useEffect } from "react";
 import { Footer } from "@widgets/Footer";
 import { Header } from "@widgets/Header";
 import { Hero } from "@widgets/Hero";
-import { Element } from 'react-scroll';
+import { Element, animateScroll as scroll } from 'react-scroll';
 
 import Bg from "@shared/assets/montash.jpg";
 import { ReadyToCollaborate } from "@widgets/ReadyToCollaborate";
 
 export function MontazhPage() {
+    useEffect(() => {
+        scroll.scrollToTop()
+    }, [])
+
     return (<>
         <Header />
         <Hero
