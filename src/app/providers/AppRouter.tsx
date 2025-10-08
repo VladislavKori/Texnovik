@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage, PrivacyPolicyPage } from "@pages";
+import { HomePage, IndustrialInstallationPage, PrivacyPolicyPage } from "@pages";
 import { MontazhPage } from "@pages/montazh";
 import { RezkaPage } from "@pages/rezka";
 import { SvarkaPage } from "@pages/svarka";
@@ -12,7 +12,7 @@ export function AppRouter() {
                 <Route index element={<HomePage />} />
                 <Route path="heavytech-repair" element={<SvarkaPage />} />
                 <Route path="plasma-cutting" element={<RezkaPage />} />
-                <Route path="industrial-installation" element={<MontazhPage />} />
+                <Route path="industrial-installation" element={<IndustrialInstallationPage />} />
                 <Route path="engineering-networks" element={<MontazhPage />} />
                 <Route path="cargo-delivery" element={<DostavkaPage />} />
                 <Route path="privacy" element={<PrivacyPolicyPage />} />
