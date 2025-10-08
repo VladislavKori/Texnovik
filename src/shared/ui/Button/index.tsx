@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 import { ButtonProp } from "./type";
 import clsx from "clsx";
 import styles from "./style.module.scss";
+import { Spinner } from "../Spinner";
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProp>(({
     children,
@@ -12,6 +13,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProp>(({
     startContent,
     endContent,
     disabled,
+    isLoading,
     ...props
 }, ref) => {
     return (
@@ -22,12 +24,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProp>(({
                 styles[`button-variant-${variant}`],
                 styles[`button-size-${size}`],
                 fullWidth && styles["button-full-width"],
-                disabled && styles["disabled"],
+                (disabled || isLoading) && styles["disabled"],
                 className,
             )}
             {...props}
         >
-            {startContent}
+            {isLoading ? <Spinner /> : startContent}
             {children}
             {endContent}
         </button>
