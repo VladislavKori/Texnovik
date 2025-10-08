@@ -14,7 +14,7 @@ export function PrivacyPolicyPage() {
 
     return (
         <>
-            <Header />
+            <Header hideMenu />
             <div className={styles["content"]}>
                 <div className="container" style={{ maxWidth: "900px" }}>
                     <Markdown>{privacyPolicyText}</Markdown>

@@ -8,7 +8,11 @@ import { Link as ScrollLink } from "react-scroll";
 import { Button } from "@shared/ui/Button";
 import { useMediaQuery } from "@shared/hooks/useMediaQuery";
 
-export const Header: FC = () => {
+interface IHeaderProps {
+    hideMenu?: boolean;
+}
+
+export const Header: FC<IHeaderProps> = (props) => {
     const [scrolled, setScrolled] = useState(false);
     const isPhone = useMediaQuery("(max-width: 576px)");
 
@@ -30,7 +34,7 @@ export const Header: FC = () => {
                     <TextLogo className={styles["header-icon"]} />
                 </Link>
                 <nav className={styles["header-menu"]}>
-                    {haederLinks.map((link, index) => (
+                    {!props.hideMenu && haederLinks.map((link, index) => (
                         <ScrollLink
                             className={styles["header-link"]}
                             activeClass={styles["header-link-active"]}
