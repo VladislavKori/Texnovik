@@ -10,10 +10,11 @@ export function AppRouter() {
         <BrowserRouter>
             <Routes>
                 <Route index element={<HomePage />} />
-                <Route path="svarka" element={<SvarkaPage />} />
-                <Route path="rezka" element={<RezkaPage />} />
-                <Route path="montazh" element={<MontazhPage />} />
-                <Route path="dostavka" element={<DostavkaPage />} />
+                <Route path="heavytech-repair" element={<SvarkaPage />} />
+                <Route path="plasma-cutting" element={<RezkaPage />} />
+                <Route path="industrial-installation" element={<MontazhPage />} />
+                <Route path="engineering-networks" element={<MontazhPage />} />
+                <Route path="cargo-delivery" element={<DostavkaPage />} />
                 <Route path="privacy" element={<PrivacyPolicyPage />} />
             </Routes>
         </BrowserRouter>

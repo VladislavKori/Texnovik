@@ -23,12 +23,34 @@ export const LeadForm: FC = () => {
         control,
     } = useForm<FormInputs>();
 
+    const getPageName = (): string => {
+        switch (location.pathname) {
+            case "/heavytech-repair":
+                return "1. Ремонт спецтехники"
+            case "/plasma-cutting":
+                return "2. Плазменная резка металла"
+            case "/industrial-installation":
+                return "3. Монтаж промышленного оборудования"
+            case "/engineering-networks":
+                return "4. Монтаж инженерных сетей"
+            case "/cargo-delivery":
+                return "5. Карго доставка из Китая"
+            case "/":
+                return "Главная страница"
+            default:  
+                return "Страница не определена" 
+        }
+    }
+
     const onSubmit: SubmitHandler<FormInputs> = async (data) => {
         try {
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+                body: JSON.stringify({
+                    fromPage: getPageName(),
+                    ...data
+                }),
             });
 
             if (!res.ok) throw new Error("Ошибка сети");

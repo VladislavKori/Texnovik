@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   try {
     let body = "";
     for await (const chunk of req) body += chunk;
-    const { name, phone, message } = JSON.parse(body);
+    const { name, phone, message, fromPage } = JSON.parse(body);
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -28,6 +28,7 @@ export default async function handler(req, res) {
 Имя: ${name}
 Телефон: ${phone}
 Сообщение: ${message || "Пустое"}
+Отправлено со страницы: ${fromPage}
       `,
     });
 
