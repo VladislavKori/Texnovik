@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import styles from "./style.module.scss";
 import clsx from "clsx";
@@ -15,6 +15,7 @@ interface FormInputs {
 
 export const LeadForm: FC = () => {
     const toast = useToast()
+    const [isSending, setIsSending] = useState<boolean>(false);
     const {
         register,
         handleSubmit,
@@ -37,12 +38,13 @@ export const LeadForm: FC = () => {
                 return "5. Карго доставка из Китая"
             case "/":
                 return "Главная страница"
-            default:  
-                return "Страница не определена" 
+            default:
+                return "Страница не определена"
         }
     }
 
     const onSubmit: SubmitHandler<FormInputs> = async (data) => {
+        setIsSending(true)
         try {
             const res = await fetch("/api/contact", {
                 method: "POST",
@@ -68,6 +70,8 @@ export const LeadForm: FC = () => {
                 duration: 6000,
             });
             console.error(error);
+        } finally {
+            setIsSending(false)
         }
     };
 
@@ -151,7 +155,8 @@ export const LeadForm: FC = () => {
                 fullWidth
                 size="m"
                 variant="default"
-            // disabled={Boolean(errors.phone || errors.name || errors.consent)}
+                isLoading={isSending}
+                disabled={Boolean(errors.phone || errors.name || errors.consent)}
             >
                 Отправить
             </Button>
