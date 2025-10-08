@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import styles from "./style.module.scss";
 import clsx from "clsx";
 import { useToast } from "@shared/ui/Toast";
 import { Button } from "@shared/ui/Button";
+import { IMaskInput } from 'react-imask';
 
 interface FormInputs {
     name: string;
@@ -19,6 +20,7 @@ export const LeadForm: FC = () => {
         handleSubmit,
         reset,
         formState: { errors },
+        control,
     } = useForm<FormInputs>();
 
     const onSubmit: SubmitHandler<FormInputs> = async (data) => {
@@ -53,7 +55,6 @@ export const LeadForm: FC = () => {
             className={styles["form"]}
         >
             <div className={styles["form-field"]}>
-                {/* <p className={styles["form-label"]}>Имя</p> */}
                 <input
                     className={clsx(
                         styles["form-input"],
@@ -67,27 +68,32 @@ export const LeadForm: FC = () => {
             </div>
 
             <div className={styles["form-field"]}>
-                {/* <p className={styles["form-label"]}>Телефон</p> */}
-                <input
-                    className={clsx(
-                        styles["form-input"],
-                        errors.phone && styles["form-input-error"]
-                    )}
-                    type="tel"
-                    {...register("phone", {
+                <Controller
+                    name="phone"
+                    control={control}
+                    rules={{
                         required: "Введите номер телефона",
-                        pattern: {
-                            value: /^[+0-9\s()-]{7,20}$/,
-                            message: "Некорректный номер",
-                        },
-                    })}
-                    placeholder="Телефон"
+                        minLength: { value: 7, message: "Слишком короткий номер" },
+                    }}
+                    render={({ field: { onChange, value }, fieldState: { error } }) => (
+                        <>
+                            <IMaskInput
+                                className={clsx(
+                                    styles["form-input"],
+                                    errors.phone && styles["form-input-error"]
+                                )}
+                                mask="+{7} (000) 000-00-00"
+                                value={value}
+                                onAccept={(val) => onChange(val)}
+                                placeholder="Телефон"
+                            />
+                            {error && <p className={styles["form-error"]}>{error.message}</p>}
+                        </>
+                    )}
                 />
-                {errors.phone && <p className={styles["form-error"]}>{errors.phone.message}</p>}
             </div>
 
             <div className={styles["form-field"]}>
-                {/* <p className={styles["form-label"]}>Сообщение</p> */}
                 <textarea
                     style={{ resize: "none" }}
                     className={styles["form-input"]}
@@ -123,7 +129,7 @@ export const LeadForm: FC = () => {
                 fullWidth
                 size="m"
                 variant="default"
-                disabled={Boolean(errors.phone || errors.name || errors.consent)}
+            // disabled={Boolean(errors.phone || errors.name || errors.consent)}
             >
                 Отправить
             </Button>
